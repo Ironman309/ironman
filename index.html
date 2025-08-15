@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VedEX Search</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .whole {
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgb(28, 27, 27);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top {
+        width: 100%;
+        height: 10vh;
+        min-height: 50px;
+        background-color: rgb(28, 27, 27);
+        color: white;
+        border-bottom: solid rgb(43, 45, 52);
+        display: flex;
+        align-items: center;
+        padding: 0 2%;
+    }
+
+    .logo {
+        height: 7vh;
+        max-height: 50px;
+        border-radius: 1vh;
+    }
+
+    .logo-but {
+        background-color: black;
+        border-radius: 2vh;
+        border: none;
+        height: 8vh;
+        max-height: 60px;
+        padding: 0.3rem;
+    }
+
+    .logo-but:hover {
+        box-shadow: 0px 0px 20px rgb(94, 94, 94);
+    }
+
+    .bottom {
+        flex: 1;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: padding-top 0.6s ease;
+    }
+
+    .bottom.search-active {
+        padding-top: 10vh;
+    }
+
+    .big-logo {
+        width: clamp(80px, 20vw, 200px);
+        height: auto;
+        margin-bottom: 3vh;
+        transition: opacity 0.3s ease;
+    }
+
+    .big-logo.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        width: 90%;
+        max-width: 800px;
+        transition: transform 1.0s ease;
+    }
+
+    .bottom.search-active .search-container {
+        transform: translateY(-10vh);
+    }
+
+    .ser-box {
+        flex: 1;
+        height: 45px;
+        border-radius: 30px;
+        padding-left: 1rem;
+        font-size: clamp(14px, 2vw, 18px);
+        border: none;
+        font-weight: bold;
+    }
+
+    .ser-but {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-left: 0.5rem;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #results {
+        width: 90%;
+        max-width: 1000px;
+        height: auto;
+        min-height: 200px;
+        background-color: rgb(47, 47, 47);
+        color: white;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: none;
+        overflow-y: auto;
+        max-height: 70vh;
+    }
+
+    #results::-webkit-scrollbar {
+        width: 8px;
+    }
+    #results::-webkit-scrollbar-track {
+        background: rgb(30, 30, 30);
+        border-radius: 5px;
+    }
+    #results::-webkit-scrollbar-thumb {
+        background-color: rgb(120, 120, 120);
+        border-radius: 5px;
+    }
+    #results::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(160, 160, 160);
+    }
+    #results {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(120, 120, 120) rgb(30, 30, 30);
+    }
+
+    .out {
+        color: white;
+        text-decoration: none;
+        font-size: clamp(16px, 2vw, 20px);
+        margin: 0.5rem 0;
+        display: inline-block;
+    }
+
+    .out:hover {
+        color: rgb(146, 146, 146);
+    }
+
+    .result-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
+
+    .result-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+        .ser-box {
+            font-size: 14px;
+        }
+        .result-img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="whole">
+    <div class="top">
+        <a href="index.html"><button class="logo-but"><img class="logo" src="logo.png" alt="logo"></button></a>
+    </div>
+    <div class="bottom">
+        <img class="big-logo" src="logo.png" alt="logo">
+        <div class="search-container">
+            <input type="text" class="ser-box" placeholder="Search" onkeydown="ent(event)">
+            <button class="ser-but"><i class="fa fa-search" onclick="searchGoogle()"></i></button>
+        </div>
+        <div id="results"></div>
+    </div>
+</div>
+<script src="hello.js"></script>
+</body>
+</html>
