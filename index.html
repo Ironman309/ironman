@@ -13,14 +13,14 @@
     }
 
     body {
-        background-color: black;
+        background-color: rgb(26, 17, 33);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .whole {
         width: 100%;
         min-height: 100vh;
-        background-color: rgb(28, 27, 27);
+        background-color: rgb(77, 13, 13);
         display: flex;
         flex-direction: column;
     }
@@ -29,12 +29,14 @@
         width: 100%;
         height: 10vh;
         min-height: 50px;
-        background-color: rgb(28, 27, 27);
+        background:none;
         color: white;
-        border-bottom: solid rgb(43, 45, 52);
         display: flex;
         align-items: center;
         padding: 0 2%;
+        backdrop-filter: blur(8.8px);
+        -webkit-backdrop-filter: blur(8.8px);
+        
     }
 
     .logo {
@@ -58,7 +60,8 @@
 
     .bottom {
         flex: 1;
-        background-color: black;
+        background: #080000;
+        background: linear-gradient(45deg, rgba(8, 0, 0, 1) 0%, rgba(4, 8, 94, 1) 23%, rgba(0, 53, 94, 1) 65%, rgba(79, 0, 50, 1) 100%);
         color: white;
         display: flex;
         flex-direction: column;
@@ -73,8 +76,14 @@
     .big-logo {
         width: clamp(80px, 20vw, 200px);
         height: auto;
+        margin-top: 5vh;
         margin-bottom: 3vh;
         transition: opacity 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.8px);
+        -webkit-backdrop-filter: blur(8.8px);
     }
 
     .big-logo.hide {
@@ -102,6 +111,13 @@
         font-size: clamp(14px, 2vw, 18px);
         border: none;
         font-weight: bold;
+        color: white;
+        
+        background: rgba(183, 183, 183, 0.3);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.8px);
+        -webkit-backdrop-filter: blur(8.8px);
     }
 
     .ser-but {
@@ -119,14 +135,22 @@
         max-width: 1000px;
         height: auto;
         min-height: 200px;
-        background-color: rgb(47, 47, 47);
+        /* background-color: rgb(47, 47, 47); */
         color: white;
         border-radius: 10px;
         padding: 1rem;
         margin-top: 1rem;
+        margin-bottom: 1rem;
         display: none;
         overflow-y: auto;
         max-height: 70vh;
+
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 8px 50px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.8px);
+        -webkit-backdrop-filter: blur(8.8px);
+
     }
 
     #results::-webkit-scrollbar {
@@ -188,11 +212,8 @@
 </head>
 <body>
 <div class="whole">
-    <div class="top">
-        <a href="index.html"><button class="logo-but"><img class="logo" src="logo.png" alt="logo"></button></a>
-    </div>
     <div class="bottom">
-        <img class="big-logo" src="logo.png" alt="logo">
+        <img class="big-logo" src="VedEX.png" alt="logo">
         <div class="search-container">
             <input type="text" class="ser-box" placeholder="Search" onkeydown="ent(event)">
             <button class="ser-but"><i class="fa fa-search" onclick="searchGoogle()"></i></button>
